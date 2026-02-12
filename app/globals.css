@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --custom-background: #e9b76b; /* Extracted color from the image */
 }
 
 @theme inline {
@@ -23,4 +24,34 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Original background image styles */
+.bg-landing {
+  background-image: url('/church/op.png');
+  background-size: cover; /* Extend the image to fill the entire screen */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat;
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  
+; /* Match the background color to the image */
+}
+
+@media (max-width: 768px) {
+  .bg-landing {
+    background-size: contain;
+  }
+}
+
+/* Further reduce background image size for desktop view */
+@media (min-width: 1024px) {
+  .bg-landing {
+    background-size: 45%; /* Further reduce the size of the image */
+    background-position: bottom center; /* Align the image to the bottom center */
+  }
+}
+
+.bg-custom {
+  background-color: var(--custom-background);
 }
