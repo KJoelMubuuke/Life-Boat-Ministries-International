@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import PastorCard from "@/components/PastorCard";
+import ContactInfo from "@/components/ContactInfo";
 
 export default function Hero() {
   return (
@@ -18,20 +20,19 @@ export default function Hero() {
             className="object-contain"
           />
 
-          {/* Curved ministry name surrounding the boat, using cat.png asset */}
-          <Image
+          {/* Curved ministry name surrounding the boat, using a plain img to avoid layout quirks on small screens */}
+          <img
             src="/church/cat.png"
             alt="Life Boat Ministries International text surrounding the boat"
-            fill
-            className="object-contain"
-            priority
+            className="absolute inset-0 w-full h-full object-contain"
+            loading="eager"
           />
         </div>
       </div>
 
-      {/* --- WIDE TRANSLUCENT BAR BEHIND BOAT --- */}
+      {/* --- WIDE TRANSLUCENT BAR BEHIND CARDS & BOAT --- */}
       <div
-        className="absolute z-0 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[95%] md:w-4/5 h-40 md:h-48 bg-white/35 rounded-3xl shadow-xl backdrop-blur-md"
+        className="absolute z-0 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[60%] md:w-[65%] h-40 md:h-48 bg-white/35 rounded-3xl shadow-xl backdrop-blur-md"
       />
 
       {/* --- HERO CONTENT (Text) --- */}
@@ -52,13 +53,38 @@ export default function Hero() {
         </Link>
       </div>
 
-      {/* Vision text on the right translucent panel */}
-      <div
-        className="hidden md:flex absolute z-20 right-[8%] top-1/2 -translate-y-1/2 w-72 h-40 items-center justify-center text-center px-6"
-      >
-        <p className="text-sm md:text-base font-semibold text-gray-800 drop-shadow-sm leading-relaxed">
-          
-        </p>
+      {/* Get in Touch card on the left (desktop/tablet) */}
+      <div className="hidden md:block absolute z-20 left-[17%] top-1/2 -translate-y-1/2">
+        <ContactInfo />
+      </div>
+
+      {/* Verse card on the right (desktop/tablet) */}
+      <div className="hidden md:flex absolute z-20 right-[6%] top-[40%] bottom-[40%] w-90  max-w-sm justify-center ">
+        <div className="bg-white/40 backdrop-blur-md border border-white/40 rounded-2xl shadow-2xl px-6 py-8 w-full max-w-80 text-center text-gray-800">
+          <p className="text-sm md:text-base font-semibold leading-snug mb-1">
+            "...Quiet! Be still!" Then the wind died down and it was completely calm.
+          </p>
+          <p className="text-xs md:text-sm text-gray-700">Mark 4:35–41</p>
+        </div>
+      </div>
+
+      {/* Pastor card at the bottom center (desktop/tablet) */}
+      <div className="hidden md:flex relative z-20 w-full justify-left left-[12%] top-[5%] mt-auto mb-6 px-4">
+        <div className="max-w-md w-full flex justify-center">
+          <PastorCard />
+        </div>
+      </div>
+
+      {/* Mobile layout: stack cards under hero */}
+      <div className="md:hidden relative z-20 w-full flex flex-col items-center gap-4 mt-6 px-4 pb-8">
+        <ContactInfo />
+        <PastorCard />
+        <div className="bg-white/40 backdrop-blur-md border border-white/40 rounded-2xl shadow-2xl px-6 py-6 w-full max-w-xs text-center text-gray-800">
+          <p className="text-xs font-semibold leading-snug mb-1">
+            "....Quiet! Be still!..." Then the wind died down and it was completely calm.
+          </p>
+          <p className="text-[11px] text-gray-700">Mark 4:35–41</p>
+        </div>
       </div>
 
     </section>

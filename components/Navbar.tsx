@@ -63,7 +63,6 @@ export default function Navbar() {
         <NavLink href="/about">About Us</NavLink>
         <NavLink href="/ministries">Ministries</NavLink>
         <NavLink href="/events">Events</NavLink>
-        <NavLink href="/sermons">Sermons</NavLink>
         <NavLink href="/contact">Contact</NavLink>
         
         <Link 
@@ -82,7 +81,6 @@ export default function Navbar() {
           <Link href="/about" onClick={() => setIsOpen(false)} className="block text-gray-800 hover:text-red-600 font-bold">About Us</Link>
           <Link href="/ministries" onClick={() => setIsOpen(false)} className="block text-gray-800 hover:text-red-600 font-bold">Ministries</Link>
           <Link href="/events" onClick={() => setIsOpen(false)} className="block text-gray-800 hover:text-red-600 font-bold">Events</Link>
-          <Link href="/sermons" onClick={() => setIsOpen(false)} className="block text-gray-800 hover:text-red-600 font-bold">Sermons</Link>
           <Link href="/contact" onClick={() => setIsOpen(false)} className="block text-gray-800 hover:text-red-600 font-bold">Contact</Link>
           <Link href="/give" onClick={() => setIsOpen(false)} className="block bg-yellow-600 text-white text-center font-bold py-2 rounded">Give</Link>
         </div>
