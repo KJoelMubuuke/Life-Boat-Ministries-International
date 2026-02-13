@@ -19,11 +19,11 @@ export const metadata: Metadata = {
   description: "A Place to Belong, Believe, and Become",
   icons: {
     icon: [
-      { url: "/church/logo.png", rel: "icon", sizes: "any" },
-      { url: "/church/logo.png", rel: "shortcut icon", sizes: "any" },
+      { url: "/logo.png", rel: "icon", sizes: "any" },
+      { url: "/logo.png", rel: "shortcut icon", sizes: "any" },
     ],
-    shortcut: "/church/logo.png",
-    apple: "/church/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
 };
 
