@@ -96,7 +96,7 @@ export default function Hero() {
             {/* translate-x-[15px] -> Moves RIGHT (increased from 5 to 15)
                translate-y-[10px] -> Moves DOWN slightly to clear the text ring
             */}
-            <div className="w-full max-w-[180px] scale-80 origin-right translate-y-[240px] translate-x-[65px]">
+            <div className="w-full max-w-[180px] scale-80 origin-right translate-y-[265px] translate-x-[75px]">
               <div className="bg-white/40 backdrop-blur-md border border-white/40 rounded-2xl shadow-2xl px-3 py-3 w-full text-center text-gray-800">
                 <p className="text-[10px] font-semibold leading-snug mb-1">
                   "....Quiet! Be still!...." Then the wind died down...
@@ -111,7 +111,7 @@ export default function Hero() {
         {/* CHANGED from mt-[-20px] to mt-[20px] 
             Positive number pushes it DOWN away from the "Welcome Home" text 
         */}
-        <div className="mt-[140px] mr-[420px] right-[80%] scale-70 pointer-events-auto">
+        <div className="mt-[200px] mr-[435px] right-[80%] scale-70 pointer-events-auto">
           <PastorCard />
         </div>
 
