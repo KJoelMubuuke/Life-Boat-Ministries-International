@@ -10,7 +10,7 @@ export default function Hero() {
     >
       {/* Background illustration (boat + surrounding text ring) */}
       <div className="absolute inset-0 z-5 flex items-center justify-center pointer-events-none">
-        <div className="relative w-[520px] h-[520px] md:w-[720px] md:h-[720px]">
+        <div className="relative w-[520px]  h-[520px] md:w-[720px] md:h-[720px]">
           {/* Central boat illustration */}
           <Image
             src="/church/Fin1.png"
@@ -30,9 +30,9 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* --- WIDE TRANSLUCENT BAR BEHIND CARDS & BOAT --- */}
+      {/* --- WIDE TRANSLUCENT BAR BEHIND CARDS & BOAT (DESKTOP/TABLET ONLY) --- */}
       <div
-        className="absolute z-0 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[60%] md:w-[65%] h-40 md:h-48 bg-white/35 rounded-3xl shadow-xl backdrop-blur-md"
+        className="hidden md:block absolute z-0 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 md:w-[65%] md:h-48 bg-white/35 rounded-3xl shadow-xl backdrop-blur-md"
       />
 
       {/* --- HERO CONTENT (Text) --- */}
@@ -59,33 +59,65 @@ export default function Hero() {
       </div>
 
       {/* Verse card on the right (desktop/tablet) */}
-      <div className="hidden md:flex absolute z-20 right-[6%] top-[40%] bottom-[40%] w-90  max-w-sm justify-center ">
-        <div className="bg-white/40 backdrop-blur-md border border-white/40 rounded-2xl shadow-2xl px-6 py-8 w-full max-w-80 text-center text-gray-800">
+      <div className="hidden md:flex absolute z-20 right-[9%] top-1/2 -translate-y-1/2 w-[320px] justify-center">
+        <div className="bg-white/40 backdrop-blur-md border border-white/40 rounded-2xl shadow-2xl px-6 py-11.5 w-full text-center text-gray-800">
           <p className="text-sm md:text-base font-semibold leading-snug mb-1">
-            "...Quiet! Be still!" Then the wind died down and it was completely calm.
+            "...Quiet! Be still!" Then the wind died down and it was completely calm...
           </p>
-          <p className="text-xs md:text-sm text-gray-700">Mark 4:35–41</p>
+          <p className="text-xs md:text-lg text-gray-700 font-bold">Mark 4:35–41</p>
         </div>
       </div>
 
       {/* Pastor card at the bottom center (desktop/tablet) */}
-      <div className="hidden md:flex relative z-20 w-full justify-left left-[12%] top-[5%] mt-auto mb-6 px-4">
+      <div className="hidden md:flex relative z-20 w-full justify-left left-[7%] top-[5%] mt-auto mb-6 px-4">
         <div className="max-w-md w-full flex justify-center">
           <PastorCard />
         </div>
       </div>
 
-      {/* Mobile layout: stack cards under hero */}
-      <div className="md:hidden relative z-20 w-full flex flex-col items-center gap-4 mt-6 px-4 pb-8">
-        <ContactInfo />
-        <PastorCard />
-        <div className="bg-white/40 backdrop-blur-md border border-white/40 rounded-2xl shadow-2xl px-6 py-6 w-full max-w-xs text-center text-gray-800">
-          <p className="text-xs font-semibold leading-snug mb-1">
-            "....Quiet! Be still!..." Then the wind died down and it was completely calm.
-          </p>
-          <p className="text-[11px] text-gray-700">Mark 4:35–41</p>
+      {/* Mobile layout: adjustments for small screens (do not block hero button clicks) */}
+      <div className="md:hidden relative z-20 w-full flex flex-col items-center gap-3 mt-4 px-7 pb-6 pointer-events-none">
+        
+        {/* --- TOP ROW (Contact & Verse) --- */}
+        <div className="w-full max-w-sm grid grid-cols-2 gap-2 items-stretch">
+          
+          {/* 1. SHIFT CONTACT CARD (Left Side) */}
+          <div className="flex justify-start pointer-events-auto">
+            {/* translate-x-[-15px] -> Moves LEFT (increased from -5 to -15)
+               translate-y-[10px]  -> Moves DOWN slightly to clear the text ring
+            */}
+            <div className="w-full max-w-[180px] scale-50 origin-left translate-y-[200px] translate-x-[-0px]">
+              <ContactInfo />
+            </div>
+          </div>
+
+          {/* 2. SHIFT VERSE CARD (Right Side) */}
+          <div className="flex justify-end pointer-events-auto">
+            {/* translate-x-[15px] -> Moves RIGHT (increased from 5 to 15)
+               translate-y-[10px] -> Moves DOWN slightly to clear the text ring
+            */}
+            <div className="w-full max-w-[180px] scale-80 origin-right translate-y-[240px] translate-x-[65px]">
+              <div className="bg-white/40 backdrop-blur-md border border-white/40 rounded-2xl shadow-2xl px-3 py-3 w-full text-center text-gray-800">
+                <p className="text-[10px] font-semibold leading-snug mb-1">
+                  "....Quiet! Be still!...." Then the wind died down...
+                </p>
+                <p className="text-[10px] text-gray-700 font-bold">Mark 4:35–41</p>
+              </div>
+            </div>
+          </div>
         </div>
+
+        {/* 3. SHIFT PASTOR CARD (Bottom Center) */}
+        {/* CHANGED from mt-[-20px] to mt-[20px] 
+            Positive number pushes it DOWN away from the "Welcome Home" text 
+        */}
+        <div className="mt-[140px] mr-[420px] right-[80%] scale-70 pointer-events-auto">
+          <PastorCard />
+        </div>
+
       </div>
+      
+  
 
     </section>
   );
