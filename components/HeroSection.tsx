@@ -87,7 +87,7 @@ export default function Hero() {
                translate-y-[10px]  -> Moves DOWN slightly to clear the text ring
             */}
             <div className="w-full max-w-[180px] scale-50 origin-left translate-y-[200px]">
-              <ContactInfo />
+              <div className=" relative translate-x-0 translate-y-0"><ContactInfo /></div>
             </div>
           </div>
 
@@ -108,7 +108,7 @@ export default function Hero() {
         </div>
 
         {/* 3. PASTOR CARD (Bottom Center, always visible on mobile) */}
-        <div className="mt-10 w-full flex justify-center pointer-events-auto">
+        <div className="mt-35 mr-85 w-full relative translate-x-6 translate-y-[70px] flex justify-center pointer-events-auto">
           <div className="scale-75">
             <PastorCard />
           </div>
