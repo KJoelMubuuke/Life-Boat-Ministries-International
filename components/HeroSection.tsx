@@ -75,6 +75,11 @@ export default function Hero() {
         </div>
       </div>
 
+      {/* Pastor card for small screens - bottom left with more inset */}
+      <div className="md:hidden absolute bottom-[5px]  right-90 z-20">
+        <PastorCard />
+      </div>
+
     </section>
   );
 }
