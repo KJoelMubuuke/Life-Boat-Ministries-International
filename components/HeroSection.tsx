@@ -10,7 +10,7 @@ export default function Hero() {
     >
       {/* Background illustration (boat + surrounding text ring) */}
       <div className="absolute inset-0 z-5 flex items-center justify-center pointer-events-none">
-        <div className="relative w-[520px]  h-[520px] md:w-[720px] md:h-[720px]">
+        <div className="relative w-[600px] h-[600px] md:w-[720px] md:h-[720px]">
           {/* Central boat illustration */}
           <Image
             src="/church/Fin1.png"
@@ -42,12 +42,12 @@ export default function Hero() {
         <h1 className="text-4xl md:text-6xl font-bold text-white-800 drop-shadow-sm mb-2 font-serif">
           Welcome Home
         </h1>
-        <p className="text-white-700 text-lg md:text-2xl font-medium tracking-wide mb-3 md:mb-6">
+        <p className="text-white-700 text-lg md:text-2xl font-medium tracking-wide mb-0 md:mb-6">
           A Place to Belong, Believe, and Become
         </p>
         <Link
           href="/contact"
-          className="inline-block bg-[#d79a1e] hover:bg-[#b88419] text-white font-semibold px-5 py-2 text-sm md:px-8 md:py-3 md:text-base rounded shadow-lg transition-all transform hover:scale-105"
+          className="inline-block bg-[#d79a1e] hover:bg-[#b88419] text-white font-semibold px-5 py-2 text-sm md:px-8 md:py-3 md:text-base rounded shadow-lg transition-all transform hover:scale-105 mt-[-4px] md:mt-0"
         >
           Plan Your Visit
         </Link>
