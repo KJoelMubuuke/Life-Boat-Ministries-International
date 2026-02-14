@@ -30,9 +30,14 @@ export default function Hero() {
         </div>
       </div>
 
+      {/* --- GLASS BACKDROP BEHIND BOAT (MOBILE) --- */}
+      <div
+        className="block md:hidden absolute z-0 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[100%] h-20 bg-white/20 backdrop-blur-md border border-black/70 rounded-3xl shadow-xl"
+      />
+
       {/* --- WIDE TRANSLUCENT BAR BEHIND CARDS & BOAT (DESKTOP/TABLET ONLY) --- */}
       <div
-        className="hidden md:block absolute z-0 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 md:w-[65%] md:h-48 bg-white/35 rounded-3xl shadow-xl backdrop-blur-md"
+        className="hidden md:block absolute z-0 left-1/2 -translate-x-90 top-1/2 -translate-y-1/2 md:w-[65%] md:h-48 bg-white/35 backdrop-blur-md border border-black/70 rounded-3xl shadow-xl"
       />
 
       {/* --- HERO CONTENT (Text) --- */}
@@ -85,8 +90,8 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Pastor card for small screens - bottom left with more inset */}
-      <div className="md:hidden absolute bottom-[5px]  right-70 z-20">
+      {/* Pastor card for small screens - bottom left */}
+      <div className="md:hidden absolute bottom-6 left-4 z-20">
         <PastorCard />
       </div>
 
