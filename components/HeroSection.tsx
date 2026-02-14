@@ -75,45 +75,33 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Mobile layout: adjustments for small screens (do not block hero button clicks) */}
-      <div className="md:hidden relative z-20 w-full flex flex-col items-center gap-3 mt-4 px-7 pb-6 pointer-events-none">
-        
-        {/* --- TOP ROW (Contact & Verse) --- */}
-        <div className="w-full max-w-sm grid grid-cols-2 gap-2 items-stretch">
-          
-          {/* 1. SHIFT CONTACT CARD (Left Side) */}
-          <div className="flex justify-start pointer-events-auto">
-            {/* translate-x-[-15px] -> Moves LEFT (increased from -5 to -15)
-               translate-y-[10px]  -> Moves DOWN slightly to clear the text ring
-            */}
-            <div className="w-full max-w-[180px] scale-50 origin-left translate-y-[200px]">
-              <div className=" relative translate-x-0 translate-y-0"><ContactInfo /></div>
+      {/* Mobile layout: simple vertical stack */}
+      <div className="md:hidden relative z-20 w-full flex flex-col items-center gap-4 mt-6 px-4 pb-8">
+        <div className="w-full max-w-sm space-y-4">
+          {/* Contact card */}
+          <div className="w-full flex justify-center">
+            <div className="w-full max-w-[260px]">
+              <ContactInfo />
             </div>
           </div>
 
-          {/* 2. SHIFT VERSE CARD (Right Side) */}
-          <div className="flex justify-end pointer-events-auto">
-            {/* translate-x-[15px] -> Moves RIGHT (increased from 5 to 15)
-               translate-y-[10px] -> Moves DOWN slightly to clear the text ring
-            */}
-            <div className="w-full max-w-[180px] scale-80 origin-right translate-y-[220px] translate-x-[40px]">
-              <div className="bg-white/40 backdrop-blur-md border border-white/40 rounded-2xl shadow-2xl px-3 py-3 w-full text-center text-gray-800">
-                <p className="text-[10px] font-semibold leading-snug mb-1">
-                  "....Quiet! Be still!...." Then the wind died down...
-                </p>
-                <p className="text-[10px] text-gray-700 font-bold">Mark 4:35–41</p>
-              </div>
+          {/* Verse card */}
+          <div className="w-full">
+            <div className="bg-white/40 backdrop-blur-md border border-white/40 rounded-2xl shadow-2xl px-3 py-3 w-full text-center text-gray-800">
+              <p className="text-[10px] font-semibold leading-snug mb-1">
+                "....Quiet! Be still!...." Then the wind died down...
+              </p>
+              <p className="text-[10px] text-gray-700 font-bold">Mark 4:35–41</p>
+            </div>
+          </div>
+
+          {/* Pastor card */}
+          <div className="w-full flex justify-center">
+            <div className="max-w-[220px]">
+              <PastorCard />
             </div>
           </div>
         </div>
-
-        {/* 3. PASTOR CARD (Bottom Center, always visible on mobile) */}
-        <div className="mt-35 mr-85 w-full relative translate-x-6 translate-y-[70px] flex justify-center pointer-events-auto">
-          <div className="scale-75">
-            <PastorCard />
-          </div>
-        </div>
-
       </div>
       
   
