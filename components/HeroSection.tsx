@@ -72,7 +72,7 @@ export default function Hero() {
       <div className="hidden md:flex absolute z-20 right-[9%] top-1/2 -translate-y-1/2 w-[320px] justify-center">
         <div className="bg-white/40 backdrop-blur-md border border-black/70 rounded-2xl shadow-2xl px-6 py-11.5 w-full text-center text-gray-800">
           <p className="text-sm md:text-base font-semibold leading-snug mb-1">
-            "...Quiet! Be still!" Then the wind died down and it was completely calm...
+            "...Quiet! Be still!" Then the wind died down and it was completely calm..."
           </p>
           <p className="text-xs md:text-lg text-gray-700 font-bold">Mark 4:35–41</p>
         </div>
@@ -86,7 +86,7 @@ export default function Hero() {
       </div>
 
       {/* Pastor card for small screens - bottom left with more inset */}
-      <div className="md:hidden absolute bottom-[5px]  right-90 z-20">
+      <div className="md:hidden absolute bottom-[5px]  right-70 z-20">
         <PastorCard />
       </div>
 
