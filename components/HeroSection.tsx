@@ -47,7 +47,7 @@ export default function Hero() {
         </p>
         <Link
           href="/contact"
-          className="inline-block bg-[#d79a1e] hover:bg-[#b88419] text-white font-semibold px-8 py-3 rounded shadow-lg transition-all transform hover:scale-105"
+          className="inline-block bg-[#d79a1e] hover:bg-[#b88419] text-white font-semibold px-5 py-2 text-sm md:px-8 md:py-3 md:text-base rounded shadow-lg transition-all transform hover:scale-105"
         >
           Plan Your Visit
         </Link>
@@ -86,7 +86,7 @@ export default function Hero() {
             {/* translate-x-[-15px] -> Moves LEFT (increased from -5 to -15)
                translate-y-[10px]  -> Moves DOWN slightly to clear the text ring
             */}
-            <div className="w-full max-w-[180px] scale-50 origin-left translate-y-[200px] translate-x-[-0px]">
+            <div className="w-full max-w-[180px] scale-50 origin-left translate-y-[200px]">
               <ContactInfo />
             </div>
           </div>
@@ -96,7 +96,7 @@ export default function Hero() {
             {/* translate-x-[15px] -> Moves RIGHT (increased from 5 to 15)
                translate-y-[10px] -> Moves DOWN slightly to clear the text ring
             */}
-            <div className="w-full max-w-[180px] scale-80 origin-right translate-y-[265px] translate-x-[75px]">
+            <div className="w-full max-w-[180px] scale-80 origin-right translate-y-[220px] translate-x-[40px]">
               <div className="bg-white/40 backdrop-blur-md border border-white/40 rounded-2xl shadow-2xl px-3 py-3 w-full text-center text-gray-800">
                 <p className="text-[10px] font-semibold leading-snug mb-1">
                   "....Quiet! Be still!...." Then the wind died down...
@@ -107,12 +107,11 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* 3. SHIFT PASTOR CARD (Bottom Center) */}
-        {/* CHANGED from mt-[-20px] to mt-[20px] 
-            Positive number pushes it DOWN away from the "Welcome Home" text 
-        */}
-        <div className="mt-[200px] mr-[435px] right-[80%] scale-70 pointer-events-auto">
-          <PastorCard />
+        {/* 3. PASTOR CARD (Bottom Center, always visible on mobile) */}
+        <div className="mt-10 w-full flex justify-center pointer-events-auto">
+          <div className="scale-75">
+            <PastorCard />
+          </div>
         </div>
 
       </div>
