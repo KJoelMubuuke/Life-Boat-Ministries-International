@@ -42,7 +42,7 @@ export default function Hero() {
         <h1 className="text-4xl md:text-6xl font-bold text-white-800 drop-shadow-sm mb-2 font-serif">
           Welcome Home
         </h1>
-        <p className="text-white-700 text-lg md:text-2xl font-medium tracking-wide mb-6">
+        <p className="text-white-700 text-lg md:text-2xl font-medium tracking-wide mb-4 md:mb-6">
           A Place to Belong, Believe, and Become
         </p>
         <Link
