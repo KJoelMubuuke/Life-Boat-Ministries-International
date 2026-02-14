@@ -4,7 +4,7 @@ export default function ContactInfo() {
   return (
     // REMOVED: 'absolute', 'top', 'left', '-translate-y-1/2'
     // ADDED: 'w-full max-w-[260px]' to keep it a nice compact size
-    <div className="w-full max-w-[280px] bg-white/40 backdrop-blur-md border border-white/40 shadow-2xl rounded-2xl px-6 py-5 flex flex-col items-center text-center">
+      <div className="w-full max-w-[280px] bg-white/40 backdrop-blur-md border border-white/40 md:border-black/70 shadow-2xl rounded-2xl px-6 py-5 flex flex-col items-center text-center">
       
       <h2 className="text-xl font-serif text-gray-900 mb-2 drop-shadow-sm">
         Get in Touch

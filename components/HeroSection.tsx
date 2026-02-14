@@ -53,6 +53,16 @@ export default function Hero() {
         </Link>
       </div>
 
+      {/* Verse card for small screens - glassy top overlay */}
+      <div className="md:hidden absolute top-14 left-1/2 -translate-x-1/2 z-20 w-[85%] max-w-xs">
+        <div className="bg-white/25 backdrop-blur-lg border border-black/60 rounded-2xl shadow-xl px-4 py-3 text-center text-gray-900">
+          <p className="text-[12px] font-semibold leading-snug mb-1">
+            "...Quiet! Be still!" Then the wind died down and it was completely calm...
+          </p>
+          <p className="text-[11px] text-gray-800 font-bold">Mark 4:35–41</p>
+        </div>
+      </div>
+
       {/* Get in Touch card on the left (desktop/tablet) */}
       <div className="hidden md:block absolute z-20 left-[17%] top-1/2 -translate-y-1/2">
         <ContactInfo />
@@ -60,7 +70,7 @@ export default function Hero() {
 
       {/* Verse card on the right (desktop/tablet) */}
       <div className="hidden md:flex absolute z-20 right-[9%] top-1/2 -translate-y-1/2 w-[320px] justify-center">
-        <div className="bg-white/40 backdrop-blur-md border border-white/40 rounded-2xl shadow-2xl px-6 py-11.5 w-full text-center text-gray-800">
+        <div className="bg-white/40 backdrop-blur-md border border-black/70 rounded-2xl shadow-2xl px-6 py-11.5 w-full text-center text-gray-800">
           <p className="text-sm md:text-base font-semibold leading-snug mb-1">
             "...Quiet! Be still!" Then the wind died down and it was completely calm...
           </p>
