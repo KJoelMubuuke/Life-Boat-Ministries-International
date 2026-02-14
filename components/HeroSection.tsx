@@ -75,37 +75,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Mobile layout: simple vertical stack */}
-      <div className="md:hidden relative z-20 w-full flex flex-col items-center gap-4 mt-6 px-4 pb-8">
-        <div className="w-full max-w-sm space-y-4">
-          {/* Contact card */}
-          <div className="w-full flex justify-center">
-            <div className="w-full max-w-[260px]">
-              <ContactInfo />
-            </div>
-          </div>
-
-          {/* Verse card */}
-          <div className="w-full">
-            <div className="bg-white/40 backdrop-blur-md border border-white/40 rounded-2xl shadow-2xl px-3 py-3 w-full text-center text-gray-800">
-              <p className="text-[10px] font-semibold leading-snug mb-1">
-                "....Quiet! Be still!...." Then the wind died down...
-              </p>
-              <p className="text-[10px] text-gray-700 font-bold">Mark 4:35–41</p>
-            </div>
-          </div>
-
-          {/* Pastor card */}
-          <div className="w-full flex justify-center">
-            <div className="max-w-[220px]">
-              <PastorCard />
-            </div>
-          </div>
-        </div>
-      </div>
-      
-  
-
     </section>
   );
 }

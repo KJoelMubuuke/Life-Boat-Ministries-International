@@ -34,13 +34,13 @@ body {
   background-repeat: no-repeat;
   height: 100vh; /* Full viewport height */
   width: 100vw; /* Full viewport width */
-  
-; /* Match the background color to the image */
+  background-color: var(--custom-background); /* Match the background color to the image */
 }
 
 @media (max-width: 768px) {
   .bg-landing {
     background-size: contain;
+    background-color: var(--custom-background);
   }
 }
 
