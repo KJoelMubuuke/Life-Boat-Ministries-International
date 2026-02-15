@@ -68,7 +68,7 @@ export default function MinistriesPage() {
 
           <article className="bg-white/80 rounded-2xl shadow-md overflow-hidden flex flex-col">
             <div className="p-5 md:p-6 flex flex-col gap-2">
-              <h2 className="text-2xl font-semibold text-gray-900">Children Rehabilitation Centre – Construction</h2>
+              <h2 className="text-2xl font-semibold text-gray-900">Children Rehabilitation Centre   Construction</h2>
               <p className="text-sm md:text-base text-[#8b6a2a] font-semibold">
                 Putting up a home and sanctuary for the children.
               </p>

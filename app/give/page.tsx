@@ -33,7 +33,7 @@ export default function GivePage() {
           <div className="bg-white/85 rounded-2xl shadow-md px-6 md:px-8 py-6 text-gray-800 text-sm md:text-base space-y-2">
             <h2 className="text-2xl font-semibold text-gray-900 font-serif mb-1">Pastor&apos;s Giving Details</h2>
             <p className="text-gray-700 mb-2">
-              For any giving-related questions or to confirm details before sending a gift, you can contact the
+              For any giving related questions or to confirm details before sending a gift, you can contact the
               pastor directly using the details below.
             </p>
             <p className="font-semibold text-gray-900">Apostle Kaikede Olowo John Stephen</p>
