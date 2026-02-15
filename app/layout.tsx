@@ -17,15 +17,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Life Boat Ministries International",
   description: "A Place to Belong, Believe, and Become",
-  icon: "/logo.png",
-  icons: {
-    icon: [
-      { url: "/logo.png", rel: "icon", sizes: "any" },
-      { url: "/logo.png", rel: "shortcut icon", sizes: "any" },
-    ],
-    shortcut: "/logo.png",
-    apple: "/logo.png",
-  },
 };
 
 export default function RootLayout({
