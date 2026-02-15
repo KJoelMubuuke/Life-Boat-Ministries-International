@@ -91,7 +91,7 @@ export default function Hero() {
       </div>
 
       {/* Pastor card for small screens - bottom left */}
-      <div className="md:hidden absolute bottom-6 left-4 z-20">
+      <div className="md:hidden absolute bottom-[-15px] left-40 z-20">
         <PastorCard />
       </div>
 
