@@ -133,16 +133,25 @@ export default function ContactPage() {
             <div className="bg-white/80 rounded-2xl shadow-md px-5 py-4 text-sm md:text-base text-gray-800 w-full">
               <h3 className="text-lg font-semibold text-gray-900 mb-2 font-serif">Visit & Service Times</h3>
               <p className="mb-1">
-                <span className="font-semibold">Location:</span> Life Boat Ministries International, Kampala, Uganda
+                <span className="font-semibold">Location:</span> Life Boat Ministries International, Tororo District, Uganda
               </p>
               <p className="mb-1">
                 <span className="font-semibold">Sunday Service:</span> 7:00am – 11:00am
               </p>
               <p className="mb-1">
-                <span className="font-semibold">Bible Study:</span> Tuesday 4:00pm – 6:00pm
+                <span className="font-semibold">Bible Studies:</span> Tuesday 4:00pm – 6:00pm
               </p>
               <p className="mb-1">
-                <span className="font-semibold">Intercessory:</span> Thursday 4:00pm – 6:00pm
+                <span className="font-semibold">Deliverance service:</span> Thursday 4:00pm – 6:00pm
+              </p>
+              <p className="mb-1">
+                <span className="font-semibold">Prayer & Fasting:</span> Friday 10:00am – 1:00pm
+              </p>
+              <p className="mb-1">
+                <span className="font-semibold">Praise & Worship:</span> Saturday
+              </p>
+              <p className="mb-1">
+                <span className="font-semibold">Evangelism:</span> Saturday 4:00pm – 6:00pm
               </p>
               <p className="text-xs md:text-sm text-gray-600 mt-2">
                 You can also reach us directly on phone or email using the contact card above.

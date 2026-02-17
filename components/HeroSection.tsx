@@ -1,45 +1,41 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import PastorCard from "@/components/PastorCard";
-import ContactInfo from "@/components/ContactInfo";
+
+const HERO_MESSAGES = [
+  "Renewal of the Mind – Theme of the Year 2026",
+  "WELCOME HOME",
+  "A PLACE TO BELONG, BELIEVE, AND BECOME",
+  "I LOVE MY CHURCH, I SUPPORT MY CHURCH",
+];
 
 export default function Hero() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % HERO_MESSAGES.length);
+    }, 7000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <>
     <section
-      className="relative w-full min-h-screen flex flex-col items-center justify-start pt-24 md:justify-center md:pt-0 overflow-hidden bg-[#bbb09a]"
+      className="relative w-full min-h-screen flex flex-col items-center justify-center pt-24 md:pt-0 overflow-hidden bg-cover bg-center"
+      style={{ backgroundImage: "url('/church/church_members.png')" }}
     >
-      {/* Background illustration (boat + surrounding text ring) */}
-      <div className="absolute inset-0 z-5 flex items-center justify-center pointer-events-none">
-        <div className="relative w-[600px] h-[600px] md:w-[720px] md:h-[720px]">
-          {/* Central boat illustration */}
-          <Image
-            src="/church/Fin1.png"
-            alt="Life Boat Ministries International boat illustration"
-            fill
-            priority
-            className="object-contain"
-          />
-
-          {/* Curved ministry name surrounding the boat, using a plain img to avoid layout quirks on small screens */}
-          <img
-            src="/church/cat.png"
-            alt="Life Boat Ministries International text surrounding the boat"
-            className="absolute inset-0 w-full h-full object-contain"
-            loading="eager"
-          />
-        </div>
-      </div>
-
       {/* --- HERO CONTENT (Text) --- */}
       <div
-        className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center px-4 mt-6 md:mt-4"
+        className="relative z-10 text-center px-4 mt-6 md:mt-4"
       >
-        <h1 className="text-4xl md:text-6xl font-bold text-white-800 drop-shadow-sm mb-2 font-serif">
-          Welcome Home
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-black dark:text-white drop-shadow-sm mb-4 font-serif transition-opacity duration-700">
+          {HERO_MESSAGES[currentIndex]}
         </h1>
         <p className="text-white-700 text-lg md:text-2xl font-medium tracking-wide mb-0 md:mb-6">
-          A Place to Belong, Believe, and Become
+          Romans 12:1–2 • Be transformed by the renewing of your mind
         </p>
         <Link
           href="/contact"
@@ -49,33 +45,10 @@ export default function Hero() {
         </Link>
       </div>
 
-
-      {/* Get in Touch card on the left (desktop/tablet) */}
-      <div className="hidden md:block absolute z-20 left-[17%] top-1/2 -translate-y-1/2">
-        <ContactInfo />
-      </div>
-
-      {/* Verse card on the right (desktop/tablet) */}
-      <div className="hidden md:flex absolute z-20 right-[9%] top-1/2 -translate-y-1/2 w-[320px] justify-center">
-        <div className="bg-white/40 backdrop-blur-md border border-black/70 rounded-2xl shadow-2xl px-6 py-11.5 w-full text-center text-gray-800">
-          <p className="text-sm md:text-base font-semibold leading-snug mb-1">
-            "...Quiet! Be still!" Then the wind died down and it was completely calm..."
-          </p>
-          <p className="text-xs md:text-lg text-gray-700 font-bold">Mark 4:35–41</p>
-        </div>
-      </div>
-
-      {/* Pastor card at the bottom center (desktop/tablet) */}
-      <div className="hidden md:flex relative z-20 w-full justify-left left-[7%] top-[5%] mt-auto mb-6 px-4">
-        <div className="max-w-md w-full flex justify-center">
-          <PastorCard />
-        </div>
-      </div>
-
     </section>
 
-    {/* Mobile-only: cards stacked below the boat hero */}
-    <section className="md:hidden w-full bg-[#bbb09a] px-4 pt-10 pb-12">
+    {/* Mobile-only: verse section below hero */}
+    <section className="md:hidden w-full bg-white px-4 pt-10 pb-12">
       {/* Verse card on top */}
       <div className="max-w-md mx-auto mb-6">
         <div className="bg-white/25 backdrop-blur-lg border border-black/60 rounded-2xl shadow-xl px-4 py-3 text-center text-gray-900">
@@ -86,19 +59,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Row: Pastor card (left) and Get in Touch (right) */}
-      <div className="max-w-md mx-auto flex flex-row gap-4 items-stretch">
-        <div className="flex-1 flex justify-center">
-          <div className="scale-90 origin-top-left">
-            <PastorCard />
-          </div>
-        </div>
-        <div className="flex-1 flex justify-center">
-          <div className="scale-75 origin-top-right border border-black rounded-2xl p-1 bg-white/10">
-            <ContactInfo />
-          </div>
-        </div>
-      </div>
     </section>
     </>
   );

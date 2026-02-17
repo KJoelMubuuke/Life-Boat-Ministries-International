@@ -28,10 +28,10 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="w-full bg-white/80 backdrop-blur-md flex flex-wrap items-center justify-between px-8 py-4 sticky top-0 z-50">
+    <nav className="w-full bg-white/80 backdrop-blur-md flex flex-wrap items-center justify-start gap-8 px-8 py-4 sticky top-0 z-50 relative">
       
       {/* --- LOGO SECTION --- */}
-      <div className="flex items-center space-x-3">
+      <div className="flex items-center space-x-3 mr-8">
         {/* Fixed image class: w-15 is not standard, changed to w-12 or w-16 for safety */}
         <div className="relative w-12 h-12 rounded-full overflow-hidden">
           <Image src="/church/logo.png" alt="Church Logo" fill className="object-cover" />
@@ -58,7 +58,7 @@ export default function Navbar() {
 
       {/* --- DESKTOP MENU --- */}
       {/* Hidden on mobile, Flex on Large screens */}
-      <div className="hidden lg:flex items-center space-x-6">
+      <div className="hidden lg:flex items-center space-x-8">
         <NavLink href="/">Home</NavLink>
         <NavLink href="/about">About Us</NavLink>
         <NavLink href="/ministries">Ministries</NavLink>
@@ -76,13 +76,49 @@ export default function Navbar() {
       {/* --- MOBILE DROPDOWN MENU --- */}
       {/* Visible only when isOpen is true */}
       {isOpen && (
-        <div className="w-full flex flex-col lg:hidden mt-4 space-y-4 pb-4 border-t border-gray-200 pt-4 animate-fade-in-down">
-          <Link href="/" onClick={() => setIsOpen(false)} className="block text-gray-800 hover:text-red-600 font-bold">Home</Link>
-          <Link href="/about" onClick={() => setIsOpen(false)} className="block text-gray-800 hover:text-red-600 font-bold">About Us</Link>
-          <Link href="/ministries" onClick={() => setIsOpen(false)} className="block text-gray-800 hover:text-red-600 font-bold">Ministries</Link>
-          <Link href="/events" onClick={() => setIsOpen(false)} className="block text-gray-800 hover:text-red-600 font-bold">Events</Link>
-          <Link href="/contact" onClick={() => setIsOpen(false)} className="block text-gray-800 hover:text-red-600 font-bold">Contact</Link>
-          <Link href="/give" onClick={() => setIsOpen(false)} className="block bg-yellow-600 text-white text-center font-bold py-2 rounded">Give</Link>
+        <div className="absolute right-4 top-full mt-2 w-56 lg:hidden bg-white/95 border border-gray-200 rounded-xl shadow-lg px-4 py-3 space-y-3 animate-fade-in-down">
+          <Link
+            href="/"
+            onClick={() => setIsOpen(false)}
+            className="block text-gray-800 hover:text-red-600 font-bold text-right"
+          >
+            Home
+          </Link>
+          <Link
+            href="/about"
+            onClick={() => setIsOpen(false)}
+            className="block text-gray-800 hover:text-red-600 font-bold text-right"
+          >
+            About Us
+          </Link>
+          <Link
+            href="/ministries"
+            onClick={() => setIsOpen(false)}
+            className="block text-gray-800 hover:text-red-600 font-bold text-right"
+          >
+            Ministries
+          </Link>
+          <Link
+            href="/events"
+            onClick={() => setIsOpen(false)}
+            className="block text-gray-800 hover:text-red-600 font-bold text-right"
+          >
+            Events
+          </Link>
+          <Link
+            href="/contact"
+            onClick={() => setIsOpen(false)}
+            className="block text-gray-800 hover:text-red-600 font-bold text-right"
+          >
+            Contact
+          </Link>
+          <Link
+            href="/give"
+            onClick={() => setIsOpen(false)}
+            className="block bg-yellow-600 text-white text-center font-bold py-2 rounded"
+          >
+            Give
+          </Link>
         </div>
       )}
 
