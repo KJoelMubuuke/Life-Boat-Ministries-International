@@ -23,7 +23,7 @@ export default function GivePage() {
         <div className="bg-white rounded-[2rem] p-8 md:p-10 shadow-2xl shadow-black/5 border border-border/50 relative overflow-hidden group hover:border-primary/20 transition-all duration-300">
           <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-bl-[4rem] -z-10 transition-transform group-hover:scale-110 duration-700"></div>
 
-          <h2 className="text-3xl font-serif font-bold mb-8 flex items-center gap-4">
+          <h2 className="text-3xl font-serif font-bold mb-8 flex items-center gap-4 text-black">
             <span className="flex items-center justify-center w-12 h-12 rounded-2xl bg-primary/10 text-primary">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
@@ -71,7 +71,7 @@ export default function GivePage() {
         <div className="bg-white rounded-[2rem] p-8 md:p-10 shadow-2xl shadow-black/5 border border-border/50 relative overflow-hidden group hover:border-secondary/20 transition-all duration-300">
           <div className="absolute top-0 left-0 w-40 h-40 bg-secondary/5 rounded-br-[4rem] -z-10 transition-transform group-hover:scale-110 duration-700"></div>
 
-          <h2 className="text-3xl font-serif font-bold mb-8 flex items-center gap-4">
+          <h2 className="text-3xl font-serif font-bold mb-8 flex items-center gap-4 text-black">
             <span className="flex items-center justify-center w-12 h-12 rounded-2xl bg-secondary/10 text-secondary">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
