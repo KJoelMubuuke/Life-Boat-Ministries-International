@@ -1,127 +1,98 @@
-"use client"; // 1. Required for Active State & Mobile Toggle
+"use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation'; // 2. Hook to check current page
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false); // State for mobile menu
-  const pathname = usePathname(); // Get current URL
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
-  // 3. Helper Component for Links
-  // This automatically checks if the link is active and adds the Red Border
+  // Handle scroll effect for navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
     const isActive = pathname === href;
     return (
-      <Link 
-        href={href} 
-        className={`pb-1 transition-colors duration-300 hover:text-red-600 ${
-          isActive 
-            ? 'text-red-600 border-b-4 border-red-600 font-bold' // ACTIVE: Red Text + Red Line
-            : 'text-gray-800 font-bold' // INACTIVE: Standard Gray
-        }`}
+      <Link
+        href={href}
+        className={`relative py-2 text-base font-medium transition-colors duration-300 group ${isActive ? 'text-primary' : 'text-foreground/80 hover:text-primary'
+          }`}
       >
         {children}
+        <span className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ease-out ${isActive ? 'w-full' : 'w-0 group-hover:w-full'
+          }`} />
       </Link>
     );
   };
 
   return (
-    <nav className="w-full bg-white/80 backdrop-blur-md flex flex-wrap items-center justify-start gap-8 px-8 py-4 sticky top-0 z-50 relative">
-      
-      {/* --- LOGO SECTION --- */}
-      <div className="flex items-center space-x-3 mr-8">
-        {/* Fixed image class: w-15 is not standard, changed to w-12 or w-16 for safety */}
-        <div className="relative w-12 h-12 rounded-full overflow-hidden">
-          <Image src="/church/logo.png" alt="Church Logo" fill className="object-cover" />
-        </div>
-        <span className="font-bold text-lg tracking-wide text-yellow-700">
-          LIFE BOAT MINISTRIES INTERNATIONAL
-        </span>
-      </div>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || isOpen ? 'glass shadow-sm py-3' : 'bg-transparent py-5'
+      }`}>
+      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
 
-      {/* --- MOBILE HAMBURGER BUTTON --- */}
-      {/* Only visible on small screens (lg:hidden) */}
-      <button 
-        onClick={() => setIsOpen(!isOpen)} 
-        className="lg:hidden text-gray-800 focus:outline-none p-2"
-      >
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          {isOpen ? (
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          ) : (
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          )}
-        </svg>
-      </button>
-
-      {/* --- DESKTOP MENU --- */}
-      {/* Hidden on mobile, Flex on Large screens */}
-      <div className="hidden lg:flex items-center space-x-8">
-        <NavLink href="/">Home</NavLink>
-        <NavLink href="/about">About Us</NavLink>
-        <NavLink href="/ministries">Ministries</NavLink>
-        <NavLink href="/events">Events</NavLink>
-        <NavLink href="/contact">Contact</NavLink>
-        
-        <Link 
-          href="/give" 
-          className="bg-yellow-600 hover:bg-red-500 transition-colors duration-300 text-white font-semibold py-2 px-4 rounded"
-        >
-          Give
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden ring-2 ring-primary/20 group-hover:ring-primary transition-all duration-300">
+            <Image src="/church/logo.png" alt="Life Boat Ministries Logo" fill className="object-cover" />
+          </div>
+          <span className="font-serif font-bold text-lg md:text-xl tracking-tight text-foreground group-hover:text-primary transition-colors">
+            Life Boat Ministries
+          </span>
         </Link>
-      </div>
 
-      {/* --- MOBILE DROPDOWN MENU --- */}
-      {/* Visible only when isOpen is true */}
-      {isOpen && (
-        <div className="absolute right-4 top-full mt-2 w-56 lg:hidden bg-white/95 border border-gray-200 rounded-xl shadow-lg px-4 py-3 space-y-3 animate-fade-in-down">
-          <Link
-            href="/"
-            onClick={() => setIsOpen(false)}
-            className="block text-gray-800 hover:text-red-600 font-bold text-right"
-          >
-            Home
-          </Link>
-          <Link
-            href="/about"
-            onClick={() => setIsOpen(false)}
-            className="block text-gray-800 hover:text-red-600 font-bold text-right"
-          >
-            About Us
-          </Link>
-          <Link
-            href="/ministries"
-            onClick={() => setIsOpen(false)}
-            className="block text-gray-800 hover:text-red-600 font-bold text-right"
-          >
-            Ministries
-          </Link>
-          <Link
-            href="/events"
-            onClick={() => setIsOpen(false)}
-            className="block text-gray-800 hover:text-red-600 font-bold text-right"
-          >
-            Events
-          </Link>
-          <Link
-            href="/contact"
-            onClick={() => setIsOpen(false)}
-            className="block text-gray-800 hover:text-red-600 font-bold text-right"
-          >
-            Contact
-          </Link>
+        {/* Desktop Menu */}
+        <div className="hidden lg:flex items-center gap-8">
+          <div className="flex items-center gap-6">
+            <NavLink href="/">Home</NavLink>
+            <NavLink href="/about">About Us</NavLink>
+            <NavLink href="/ministries">Ministries</NavLink>
+            <NavLink href="/events">Events</NavLink>
+            <NavLink href="/contact">Contact</NavLink>
+          </div>
+
           <Link
             href="/give"
-            onClick={() => setIsOpen(false)}
-            className="block bg-yellow-600 text-white text-center font-bold py-2 rounded"
+            className="bg-primary hover:bg-primary/90 text-white font-medium py-2.5 px-6 rounded-full shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
           >
             Give
           </Link>
         </div>
-      )}
 
+        {/* Mobile Toggle */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="lg:hidden p-2 text-foreground/80 hover:text-primary transition-colors focus:outline-none"
+          aria-label="Toggle menu"
+        >
+          <div className="w-6 h-5 flex flex-col justify-between items-end">
+            <span className={`h-0.5 bg-current transition-all duration-300 ${isOpen ? 'w-6 rotate-45 translate-y-2' : 'w-6'}`} />
+            <span className={`h-0.5 bg-current transition-all duration-300 ${isOpen ? 'opacity-0' : 'w-4'}`} />
+            <span className={`h-0.5 bg-current transition-all duration-300 ${isOpen ? 'w-6 -rotate-45 -translate-y-2.5' : 'w-5'}`} />
+          </div>
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <div className={`lg:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-[400px] opacity-100 shadow-xl' : 'max-h-0 opacity-0'
+        }`}>
+        <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
+          <Link href="/" onClick={() => setIsOpen(false)} className={`text-lg font-medium p-2 hover:bg-muted/50 rounded-lg transition-colors ${pathname === '/' ? 'text-primary' : 'text-foreground'}`}>Home</Link>
+          <Link href="/about" onClick={() => setIsOpen(false)} className={`text-lg font-medium p-2 hover:bg-muted/50 rounded-lg transition-colors ${pathname === '/about' ? 'text-primary' : 'text-foreground'}`}>About Us</Link>
+          <Link href="/ministries" onClick={() => setIsOpen(false)} className={`text-lg font-medium p-2 hover:bg-muted/50 rounded-lg transition-colors ${pathname === '/ministries' ? 'text-primary' : 'text-foreground'}`}>Ministries</Link>
+          <Link href="/events" onClick={() => setIsOpen(false)} className={`text-lg font-medium p-2 hover:bg-muted/50 rounded-lg transition-colors ${pathname === '/events' ? 'text-primary' : 'text-foreground'}`}>Events</Link>
+          <Link href="/contact" onClick={() => setIsOpen(false)} className={`text-lg font-medium p-2 hover:bg-muted/50 rounded-lg transition-colors ${pathname === '/contact' ? 'text-primary' : 'text-foreground'}`}>Contact</Link>
+          <Link href="/give" onClick={() => setIsOpen(false)} className="bg-primary text-white text-center font-medium py-3 rounded-xl shadow-md mt-2">Give Now</Link>
+        </div>
+      </div>
     </nav>
   );
 }

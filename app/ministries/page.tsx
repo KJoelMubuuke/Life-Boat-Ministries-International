@@ -2,129 +2,109 @@ import Image from "next/image";
 
 export default function MinistriesPage() {
   return (
-    <main className="min-h-[70vh] bg-[#f5f0e8] flex justify-center px-4 py-10">
-      <section className="max-w-6xl w-full">
-        <div className="bg-white/90 rounded-3xl shadow-md px-6 md:px-10 py-8 mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 font-serif">
-            Our Ministries
+    <main className="min-h-screen bg-background text-foreground pt-10 pb-20">
+
+      {/* Hero Section */}
+      <section className="relative px-4 mb-20">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-bold text-sm tracking-widest uppercase mb-2">
+            Our Work
+          </div>
+          <h1 className="text-5xl md:text-7xl font-serif font-bold text-foreground tracking-tight">
+            Our <span className="text-primary">Ministries</span>
           </h1>
-          <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-            At Life Boat Ministries International, our ministries are focused on restoring lives,
-            building the house of God, and reaching our community with the love of Christ.
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
+            At Life Boat Ministries International, our ministries are focused on restoring lives, building the house of God, and reaching our community with the love of Christ.
           </p>
         </div>
-        {/* Children rehabilitation section */}
-        <section className="mb-10 space-y-4">
-          <div className="relative w-full h-56 md:h-72 rounded-2xl overflow-hidden shadow-md">
-            <Image
-              src="/church/children.png"
-              alt="Children at the rehabilitation center"
-              fill
-              className="object-cover"
-              sizes="(min-width: 768px) 50vw, 100vw"
-              priority
-            />
-          </div>
+      </section>
 
-          <article className="bg-white/80 rounded-2xl shadow-md overflow-hidden flex flex-col">
-            <div className="p-5 md:p-6 flex flex-col gap-2">
-              <h2 className="text-2xl font-semibold text-gray-900">Children Rehabilitation Centre</h2>
-              <p className="text-sm md:text-base text-[#8b6a2a] font-semibold">
+      <section className="max-w-7xl mx-auto px-4 md:px-8 space-y-20">
+
+        {/* Children rehabilitation section */}
+        <section className="bg-white rounded-[2.5rem] p-6 md:p-8 shadow-xl border border-border/50">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="relative w-full h-[400px] rounded-[2rem] overflow-hidden shadow-md">
+              <Image
+                src="/church/children.png"
+                alt="Children at the rehabilitation center"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-700"
+                sizes="(min-width: 768px) 50vw, 100vw"
+                priority
+              />
+            </div>
+
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900">Children Rehabilitation Centre</h2>
+              <p className="text-lg font-semibold text-primary">
                 Reaching, restoring, and discipling vulnerable children.
               </p>
-              <p className="text-sm md:text-base text-gray-700 leading-relaxed">
-                The Children Rehabilitation Centre is a safe place where children are loved, cared for,
-                and taught the Word of God. Through counseling, education, and daily care, we help
-                children heal from trauma, discover their God-given identity, and grow in a Christ-
-                centered community.
+              <p className="text-lg text-gray-600 leading-relaxed">
+                The Children Rehabilitation Centre is a safe place where children are loved, cared for, and taught the Word of God. Through counseling, education, and daily care, we help children heal from trauma, discover their God-given identity, and grow in a Christ-centered community.
               </p>
             </div>
-          </article>
+          </div>
         </section>
 
         {/* Construction project gallery */}
-        <section className="mb-10 space-y-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <section className="bg-muted/30 rounded-[2.5rem] p-6 md:p-8 border border-border/50">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Construction Project</h2>
+            <p className="text-lg text-gray-600">Putting up a home and sanctuary for the children.</p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             {[
               "church_project1.png",
               "church_project2.png",
               "church_project3.png",
               "church_project4.png",
-            ].map((src) => (
+            ].map((src, i) => (
               <div
                 key={src}
-                className="relative w-full h-32 md:h-40 rounded-2xl overflow-hidden shadow-md"
+                className="relative w-full h-40 md:h-56 rounded-2xl overflow-hidden shadow-md group"
               >
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
                 <Image
                   src={`/church/${src}`}
-                  alt="Children rehabilitation centre construction project image"
+                  alt={`Construction project ${i + 1}`}
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
                   sizes="(min-width: 768px) 25vw, 50vw"
                 />
               </div>
             ))}
           </div>
 
-          <article className="bg-white/80 rounded-2xl shadow-md overflow-hidden flex flex-col">
-            <div className="p-5 md:p-6 flex flex-col gap-2">
-              <h2 className="text-2xl font-semibold text-gray-900">Children Rehabilitation Centre   Construction</h2>
-              <p className="text-sm md:text-base text-[#8b6a2a] font-semibold">
-                Putting up a home and sanctuary for the children.
-              </p>
-              <p className="text-sm md:text-base text-gray-700 leading-relaxed">
-                This building project is focused on providing a safe, permanent home for the children in
-                our rehabilitation centre. As we construct dormitories, classrooms, and prayer spaces, we
-                are preparing an environment where children can be nurtured spiritually, emotionally, and
-                socially.
-              </p>
-              <p className="text-sm md:text-base text-gray-700 leading-relaxed">
-                Through prayers, financial support, and voluntary work, partners are helping us raise a
-                place that will shelter, train, and send out restored children as witnesses of God&apos;s
-                goodness.
-              </p>
-            </div>
-          </article>
+          <div className="bg-white p-8 rounded-3xl shadow-sm border border-border/50 text-center max-w-4xl mx-auto">
+            <p className="text-lg text-gray-600 leading-relaxed">
+              This building project is focused on providing a safe, permanent home for the children in our rehabilitation centre. As we construct dormitories, classrooms, and prayer spaces, we are preparing an environment where children can be nurtured spiritually, emotionally, and socially.
+            </p>
+          </div>
         </section>
 
-        <div className="grid gap-6 md:gap-8 md:grid-cols-2">
-          <article className="bg-white/80 rounded-2xl shadow-md overflow-hidden flex flex-col">
-            <div className="p-5 md:p-6 flex flex-col gap-2">
-              <h2 className="text-2xl font-semibold text-gray-900">Choir & Intercessors</h2>
-              <p className="text-sm md:text-base text-[#8b6a2a] font-semibold">
-                Raising a sound of worship and prayer.
+        {/* Other Ministries */}
+        <div className="grid gap-8 md:grid-cols-2">
+          {[{
+            title: "Choir & Intercessors",
+            subtitle: "Raising a sound of worship and prayer.",
+            desc: "The choir and intercessory team lead the church into the presence of God through praise, worship, and prayer. They are devoted to standing in the gap for the church, families, and the nation."
+          }, {
+            title: "Evangelism & Outreach",
+            subtitle: "Taking the gospel beyond the church walls.",
+            desc: "The evangelism ministry is committed to fulfilling the Great Commission through street evangelism, home visits, hospital and community outreaches, and open-air meetings."
+          }].map((min, i) => (
+            <article key={i} className="bg-white rounded-[2rem] p-8 md:p-10 shadow-lg border border-border/50 hover:border-primary/20 transition-all duration-300">
+              <h2 className="text-3xl font-serif font-bold text-gray-900 mb-3">{min.title}</h2>
+              <p className="text-lg font-semibold text-primary mb-4">
+                {min.subtitle}
               </p>
-              <p className="text-sm md:text-base text-gray-700 leading-relaxed">
-                The choir and intercessory team lead the church into the presence of God through praise,
-                worship, and prayer. They are devoted to standing in the gap for the church, families,
-                and the nation, preparing the spiritual atmosphere for every service, outreach, and
-                special program.
+              <p className="text-lg text-gray-600 leading-relaxed">
+                {min.desc}
               </p>
-              <p className="text-sm md:text-base text-gray-700 leading-relaxed">
-                Members of this ministry are trained in both musical excellence and a lifestyle of
-                holiness, carrying the message of Christ through songs and persistent intercession.
-              </p>
-            </div>
-          </article>
-
-          <article className="bg-white/80 rounded-2xl shadow-md overflow-hidden flex flex-col">
-            <div className="p-5 md:p-6 flex flex-col gap-2">
-              <h2 className="text-2xl font-semibold text-gray-900">Evangelism & Outreach</h2>
-              <p className="text-sm md:text-base text-[#8b6a2a] font-semibold">
-                Taking the gospel beyond the church walls.
-              </p>
-              <p className="text-sm md:text-base text-gray-700 leading-relaxed">
-                The evangelism ministry is committed to fulfilling the Great Commission through street
-                evangelism, home visits, hospital and community outreaches, and open-air meetings.
-                Through preaching, prayer, and practical acts of love, we share the gospel and invite
-                people into a living relationship with Jesus Christ.
-              </p>
-              <p className="text-sm md:text-base text-gray-700 leading-relaxed">
-                This ministry also works hand in hand with other departments to follow up new believers
-                and connect them into discipleship and church life.
-              </p>
-            </div>
-          </article>
+            </article>
+          ))}
         </div>
       </section>
     </main>
